@@ -929,6 +929,11 @@ moc_mainwindow.cpp: mainwindow.h \
 		../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QPushButton \
 		../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qpushbutton.h \
 		../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/QTcpSocket \
+		../../Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qtcpsocket.h \
+		../../Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		../../Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		../../Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qabstractsocket.h \
 		moc_predefs.h \
 		../../Qt5.14.2/5.14.2/gcc_64/bin/moc
 	/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /home/ubuntu/Final/daegamjip/moc_predefs.h -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/home/ubuntu/Final/daegamjip -I/usr/local/include/opencv4 -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtMultimediaWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtMultimedia -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtNetwork -I/home/ubuntu/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include mainwindow.h -o moc_mainwindow.cpp
@@ -1451,6 +1456,11 @@ main.o: main.cpp mainwindow.h \
 		../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QPushButton \
 		../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qpushbutton.h \
 		../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/QTcpSocket \
+		../../Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qtcpsocket.h \
+		../../Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		../../Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		../../Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qabstractsocket.h \
 		../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QApplication \
 		../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qapplication.h \
 		../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcoreapplication.h \
@@ -1600,6 +1610,11 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QPushButton \
 		../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qpushbutton.h \
 		../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/QTcpSocket \
+		../../Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qtcpsocket.h \
+		../../Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		../../Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		../../Qt5.14.2/5.14.2/gcc_64/include/QtNetwork/qabstractsocket.h \
 		ui_mainwindow.h \
 		../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QVariant \
 		../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QApplication \
@@ -1661,7 +1676,10 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 		../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QTimer \
 		../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtimer.h \
 		../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbasictimer.h \
-		../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QDebug
+		../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QDebug \
+		../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QMessageBox \
+		../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qmessagebox.h \
+		../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
 
 camerawidget.o: camerawidget.cpp ../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/QPainter \

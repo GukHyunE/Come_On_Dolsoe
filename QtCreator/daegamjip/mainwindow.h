@@ -10,6 +10,7 @@
 #include <QCameraInfo>
 #include <QVideoWidget>
 #include <QPushButton>
+#include <QTcpSocket>
 
 QT_BEGIN_NAMESPACE
 class QLineEdit;
@@ -63,6 +64,8 @@ private:
     int m_stateCountdown;
     QTimer *m_finishPageTimer;
     int m_previousStackIndex;
+    QTcpSocket *socket;
+
 
 private slots:
     void on_startButton_clicked();
@@ -86,6 +89,8 @@ private slots:
     void goToStartPage();
     void startCamera();
     void stopCamera();
+    void onSocketReadyRead();
+
 
 private:
     void resetCameraPage();

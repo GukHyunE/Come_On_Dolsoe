@@ -20,7 +20,13 @@ void handle_echo(ServerContext& ctx, ClientInfo* self,
                  const vector<string>& tok,
                  const string& fullLine);
 
-// 필요해지면 점차 추가
+// 키오스크 -> 서버
+void handle_store_info(ServerContext& ctx, ClientInfo* self, const vector<string>& tok);
+void handle_send_password_to_robot(ServerContext& ctx, ClientInfo* self, const vector<string>& tok);
+
+// 로봇 -> 서버
+void handle_robot_ready(ServerContext& ctx, ClientInfo* self, const vector<string>& tok);
+
 // void handle_register(ServerContext& ctx, ClientInfo* self, const vector<string>& tok);
 // void handle_sensor(ServerContext& ctx, ClientInfo* self, const vector<string>& tok);
 // void handle_msg(ServerContext& ctx, ClientInfo* self, const vector<string>& tok);

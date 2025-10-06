@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTcpSocket>
 
 class NumPad; // Forward declaration
 
@@ -32,12 +33,22 @@ private slots:
     void on_langKrPB_clicked();
     void on_langEnPB_clicked();
 
+    // Network slots
+    void onConnected();
+    void onReadyRead();
+    void onDisconnected();
+
 private:
     void updateTexts();
+    void connectToServer();
     Ui::MainWindow *ui;
     NumPad *m_numpad;
     NumpadReason m_numpadReason;
     QString m_currentLanguage;
     bool m_isStopped;
+
+    // Network members
+    QTcpSocket *m_socket;
+    QString m_assignedPassword;
 };
 #endif // MAINWINDOW_H

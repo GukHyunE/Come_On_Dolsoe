@@ -18,6 +18,9 @@ public:
     ~NumPad();
     void clear();
 
+public slots:
+    void acceptAndClose();
+
 signals:
     void passwordEntered(const QString &password);
 

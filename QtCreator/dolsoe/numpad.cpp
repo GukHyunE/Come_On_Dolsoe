@@ -40,6 +40,11 @@ void NumPad::clear()
     updatePasswordIndicators(0);
 }
 
+void NumPad::acceptAndClose()
+{
+    accept();
+}
+
 void NumPad::numpadHandler()
 {
     QPushButton *button = qobject_cast<QPushButton*>(sender());
@@ -53,20 +58,18 @@ void NumPad::numpadHandler()
 
 void NumPad::on_backButton_clicked()
 {
-    if (m_backButtonBlocked) return; // Prevent re-entry
-    m_backButtonBlocked = true; // Block further entries
+    if (m_backButtonBlocked) return;
+    m_backButtonBlocked = true;
 
     m_password.chop(1);
     updatePasswordIndicators(m_password.length());
 
-    // Unblock after a short delay
     QTimer::singleShot(100, this, [this]() { m_backButtonBlocked = false; });
 }
 
 void NumPad::on_enterButton_clicked()
 {
     emit passwordEntered(m_password);
-    close();
 }
 
 void NumPad::updatePasswordIndicators(int length)

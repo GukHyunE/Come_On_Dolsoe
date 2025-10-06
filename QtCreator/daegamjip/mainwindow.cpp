@@ -16,6 +16,8 @@
 #include <QTimer> // Added for QTimer functionality
 #include <QDebug>
 #include <QCameraInfo>
+#include <QMessageBox>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -23,6 +25,11 @@ MainWindow::MainWindow(QWidget *parent)
     , m_previousStackIndex(0)
 {
     ui->setupUi(this);
+
+    // Socket setup
+    socket = new QTcpSocket(this);
+    connect(socket, &QTcpSocket::readyRead, this, &MainWindow::onSocketReadyRead);
+
 
     // Create and configure temporary buttons programmatically
     tempPrevButton = new QPushButton("Temp Prev", ui->centralwidget);
@@ -199,11 +206,54 @@ void MainWindow::on_startButton_clicked()
     ui->stack->setCurrentIndex(1);
 }
 
-void MainWindow::on_next_clicked() // Re-added
+void MainWindow::on_next_clicked()
 {
-    ui->stack->setCurrentIndex(2);
-    m_languageButtonWidget->setVisible(false);
+    // 서버 주소와 포트
+    QString serverAddress = "10.10.16.153";
+    quint16 serverPort = 5000; // 서버 포트에 맞게 수정
+
+    socket->connectToHost(serverAddress, serverPort);
+    if (socket->waitForConnected(3000)) { // 3초 동안 연결 대기
+        // UI에서 사용자 정보 가져오기
+        QString name = ui->nameLE->text();
+        QString countryCode = ui->countrynumLE->text();
+        QString password = ui->pwLE->text();
+
+        // 프로토콜에 맞춰 메시지 생성: STORE@이름@국가번호@비밀번호
+        QString message = QString("STORE@%1@%2@%3").arg(name, countryCode, password);
+
+        // 서버로 메시지 전송
+        socket->write(message.toUtf8() + "\n");
+        socket->flush(); // 버퍼를 비워 즉시 전송
+
+        // 다음 페이지로 이동
+        ui->stack->setCurrentIndex(ui->stack->indexOf(ui->cameraPage));
+        m_languageButtonWidget->setVisible(false);
+
+    } else {
+        // 연결 실패 처리
+        QMessageBox::critical(this, tr("Connection Failed"), tr("Could not connect to the server."));
+        // 실패 시 다른 페이지로 이동하거나 현재 페이지에 머무를 수 있습니다.
+        // 예: ui->stack->setCurrentIndex(ui->stack->indexOf(ui->noRobotPage));
+    }
 }
+
+
+void MainWindow::onSocketReadyRead()
+{
+    // 서버로부터 응답을 받을 경우의 처리 (예: ACK@STORE)
+    QByteArray data = socket->readAll();
+    QString response = QString::fromUtf8(data).trimmed();
+    qDebug() << "Received from server:" << response;
+
+    if (response == "ACK@STORE") {
+        // 성공적으로 저장됨
+        // 다음 페이지로 이동 등의 추가 작업 수행 가능
+    } else {
+        // 저장 실패 또는 다른 응답 처리
+    }
+}
+
 
 void MainWindow::on_pushButton_2_clicked() // "초기 화면" button
 {
@@ -214,7 +264,17 @@ void MainWindow::on_pushButton_2_clicked() // "초기 화면" button
 
 void MainWindow::on_pushButton_3_clicked() // "돌쇠야 가자" button
 {
-    ui->stack->setCurrentIndex(4);
+    if (socket->state() == QAbstractSocket::ConnectedState) {
+        socket->write("SEND_TO_ROBOT\n");
+        socket->flush();
+        qDebug() << "Sent SEND_TO_ROBOT to server.";
+    } else {
+        // 서버 연결이 끊긴 경우, 다시 연결 시도 후 메시지 전송
+        // 이 예제에서는 단순화를 위해 연결이 되어있다고 가정하고 바로 다음 페이지로 넘어갑니다.
+        qDebug() << "Socket not connected, cannot send SEND_TO_ROBOT.";
+    }
+    // 다음 페이지(finishPage)로 이동
+    ui->stack->setCurrentIndex(ui->stack->indexOf(ui->finishPage));
 }
 
 void MainWindow::on_pushButton_clicked()
