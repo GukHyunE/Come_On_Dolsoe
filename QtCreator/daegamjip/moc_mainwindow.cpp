@@ -1,114 +1,125 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created by: The Qt Meta Object Compiler version 68 (Qt 6.8.3)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.14.2)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
+#include <memory>
 #include "mainwindow.h"
-#include <QtGui/qtextcursor.h>
+#include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #include <QtCore/QList>
-
-#include <QtCore/qtmochelpers.h>
-
-#include <memory>
-
-
-#include <QtCore/qxptype_traits.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'mainwindow.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 68
-#error "This file was generated using the moc from 6.8.3. It"
+#elif Q_MOC_OUTPUT_REVISION != 67
+#error "This file was generated using the moc from 5.14.2. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
-#ifndef Q_CONSTINIT
-#define Q_CONSTINIT
-#endif
-
+QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-QT_WARNING_DISABLE_GCC("-Wuseless-cast")
-namespace {
-struct qt_meta_tag_ZN10MainWindowE_t {};
-} // unnamed namespace
+struct qt_meta_stringdata_MainWindow_t {
+    QByteArrayData data[31];
+    char stringdata0[528];
+};
+#define QT_MOC_LITERAL(idx, ofs, len) \
+    Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
+    qptrdiff(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
+    )
+static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
+    {
+QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
+QT_MOC_LITERAL(1, 11, 22), // "on_startButton_clicked"
+QT_MOC_LITERAL(2, 34, 0), // ""
+QT_MOC_LITERAL(3, 35, 15), // "on_next_clicked"
+QT_MOC_LITERAL(4, 51, 23), // "on_pushButton_2_clicked"
+QT_MOC_LITERAL(5, 75, 23), // "on_pushButton_3_clicked"
+QT_MOC_LITERAL(6, 99, 21), // "on_pushButton_clicked"
+QT_MOC_LITERAL(7, 121, 15), // "updateCountdown"
+QT_MOC_LITERAL(8, 137, 15), // "on_back_clicked"
+QT_MOC_LITERAL(9, 153, 25), // "on_tempPrevButton_clicked"
+QT_MOC_LITERAL(10, 179, 25), // "on_tempNextButton_clicked"
+QT_MOC_LITERAL(11, 205, 18), // "onStackPageChanged"
+QT_MOC_LITERAL(12, 224, 5), // "index"
+QT_MOC_LITERAL(13, 230, 32), // "on_countryCB_currentIndexChanged"
+QT_MOC_LITERAL(14, 263, 21), // "handlePasswordChanged"
+QT_MOC_LITERAL(15, 285, 21), // "checkFormCompleteness"
+QT_MOC_LITERAL(16, 307, 23), // "on_koreanButton_clicked"
+QT_MOC_LITERAL(17, 331, 24), // "on_englishButton_clicked"
+QT_MOC_LITERAL(18, 356, 14), // "changeLanguage"
+QT_MOC_LITERAL(19, 371, 8), // "language"
+QT_MOC_LITERAL(20, 380, 24), // "updatePasswordIndicators"
+QT_MOC_LITERAL(21, 405, 6), // "length"
+QT_MOC_LITERAL(22, 412, 14), // "QList<QLabel*>"
+QT_MOC_LITERAL(23, 427, 10), // "indicators"
+QT_MOC_LITERAL(24, 438, 13), // "onCameraError"
+QT_MOC_LITERAL(25, 452, 14), // "QCamera::Error"
+QT_MOC_LITERAL(26, 467, 5), // "error"
+QT_MOC_LITERAL(27, 473, 13), // "goToStartPage"
+QT_MOC_LITERAL(28, 487, 11), // "startCamera"
+QT_MOC_LITERAL(29, 499, 10), // "stopCamera"
+QT_MOC_LITERAL(30, 510, 17) // "onSocketReadyRead"
 
+    },
+    "MainWindow\0on_startButton_clicked\0\0"
+    "on_next_clicked\0on_pushButton_2_clicked\0"
+    "on_pushButton_3_clicked\0on_pushButton_clicked\0"
+    "updateCountdown\0on_back_clicked\0"
+    "on_tempPrevButton_clicked\0"
+    "on_tempNextButton_clicked\0onStackPageChanged\0"
+    "index\0on_countryCB_currentIndexChanged\0"
+    "handlePasswordChanged\0checkFormCompleteness\0"
+    "on_koreanButton_clicked\0"
+    "on_englishButton_clicked\0changeLanguage\0"
+    "language\0updatePasswordIndicators\0"
+    "length\0QList<QLabel*>\0indicators\0"
+    "onCameraError\0QCamera::Error\0error\0"
+    "goToStartPage\0startCamera\0stopCamera\0"
+    "onSocketReadyRead"
+};
+#undef QT_MOC_LITERAL
 
-#ifdef QT_MOC_HAS_STRINGDATA
-static constexpr auto qt_meta_stringdata_ZN10MainWindowE = QtMocHelpers::stringData(
-    "MainWindow",
-    "on_startButton_clicked",
-    "",
-    "on_next_clicked",
-    "on_pushButton_2_clicked",
-    "on_pushButton_3_clicked",
-    "on_pushButton_clicked",
-    "updateCountdown",
-    "on_back_clicked",
-    "on_tempPrevButton_clicked",
-    "on_tempNextButton_clicked",
-    "onStackPageChanged",
-    "index",
-    "on_countryCB_currentIndexChanged",
-    "handlePasswordChanged",
-    "checkFormCompleteness",
-    "on_koreanButton_clicked",
-    "on_englishButton_clicked",
-    "changeLanguage",
-    "language",
-    "updatePasswordIndicators",
-    "length",
-    "QList<QLabel*>",
-    "indicators",
-    "onCameraError",
-    "QCamera::Error",
-    "error",
-    "goToStartPage",
-    "startCamera",
-    "stopCamera"
-);
-#else  // !QT_MOC_HAS_STRINGDATA
-#error "qtmochelpers.h not found or too old."
-#endif // !QT_MOC_HAS_STRINGDATA
-
-Q_CONSTINIT static const uint qt_meta_data_ZN10MainWindowE[] = {
+static const uint qt_meta_data_MainWindow[] = {
 
  // content:
-      12,       // revision
+       8,       // revision
        0,       // classname
        0,    0, // classinfo
-      21,   14, // methods
+      22,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
 
- // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,  140,    2, 0x08,    1 /* Private */,
-       3,    0,  141,    2, 0x08,    2 /* Private */,
-       4,    0,  142,    2, 0x08,    3 /* Private */,
-       5,    0,  143,    2, 0x08,    4 /* Private */,
-       6,    0,  144,    2, 0x08,    5 /* Private */,
-       7,    0,  145,    2, 0x08,    6 /* Private */,
-       8,    0,  146,    2, 0x08,    7 /* Private */,
-       9,    0,  147,    2, 0x08,    8 /* Private */,
-      10,    0,  148,    2, 0x08,    9 /* Private */,
-      11,    1,  149,    2, 0x08,   10 /* Private */,
-      13,    1,  152,    2, 0x08,   12 /* Private */,
-      14,    0,  155,    2, 0x08,   14 /* Private */,
-      15,    0,  156,    2, 0x08,   15 /* Private */,
-      16,    0,  157,    2, 0x08,   16 /* Private */,
-      17,    0,  158,    2, 0x08,   17 /* Private */,
-      18,    1,  159,    2, 0x08,   18 /* Private */,
-      20,    2,  162,    2, 0x08,   20 /* Private */,
-      24,    1,  167,    2, 0x08,   23 /* Private */,
-      27,    0,  170,    2, 0x08,   25 /* Private */,
-      28,    0,  171,    2, 0x08,   26 /* Private */,
-      29,    0,  172,    2, 0x08,   27 /* Private */,
+ // slots: name, argc, parameters, tag, flags
+       1,    0,  124,    2, 0x08 /* Private */,
+       3,    0,  125,    2, 0x08 /* Private */,
+       4,    0,  126,    2, 0x08 /* Private */,
+       5,    0,  127,    2, 0x08 /* Private */,
+       6,    0,  128,    2, 0x08 /* Private */,
+       7,    0,  129,    2, 0x08 /* Private */,
+       8,    0,  130,    2, 0x08 /* Private */,
+       9,    0,  131,    2, 0x08 /* Private */,
+      10,    0,  132,    2, 0x08 /* Private */,
+      11,    1,  133,    2, 0x08 /* Private */,
+      13,    1,  136,    2, 0x08 /* Private */,
+      14,    0,  139,    2, 0x08 /* Private */,
+      15,    0,  140,    2, 0x08 /* Private */,
+      16,    0,  141,    2, 0x08 /* Private */,
+      17,    0,  142,    2, 0x08 /* Private */,
+      18,    1,  143,    2, 0x08 /* Private */,
+      20,    2,  146,    2, 0x08 /* Private */,
+      24,    1,  151,    2, 0x08 /* Private */,
+      27,    0,  154,    2, 0x08 /* Private */,
+      28,    0,  155,    2, 0x08 /* Private */,
+      29,    0,  156,    2, 0x08 /* Private */,
+      30,    0,  157,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -132,75 +143,16 @@ Q_CONSTINIT static const uint qt_meta_data_ZN10MainWindowE[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
 
-Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
-    QMetaObject::SuperData::link<QMainWindow::staticMetaObject>(),
-    qt_meta_stringdata_ZN10MainWindowE.offsetsAndSizes,
-    qt_meta_data_ZN10MainWindowE,
-    qt_static_metacall,
-    nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_tag_ZN10MainWindowE_t,
-        // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<MainWindow, std::true_type>,
-        // method 'on_startButton_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_next_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_pushButton_2_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_pushButton_3_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_pushButton_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'updateCountdown'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_back_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_tempPrevButton_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_tempNextButton_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'onStackPageChanged'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'on_countryCB_currentIndexChanged'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'handlePasswordChanged'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'checkFormCompleteness'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_koreanButton_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_englishButton_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'changeLanguage'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
-        // method 'updatePasswordIndicators'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QList<QLabel*> &, std::false_type>,
-        // method 'onCameraError'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<QCamera::Error, std::false_type>,
-        // method 'goToStartPage'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'startCamera'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'stopCamera'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>
-    >,
-    nullptr
-} };
-
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    auto *_t = static_cast<MainWindow *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
+        auto *_t = static_cast<MainWindow *>(_o);
+        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_startButton_clicked(); break;
         case 1: _t->on_next_clicked(); break;
@@ -211,34 +163,51 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 6: _t->on_back_clicked(); break;
         case 7: _t->on_tempPrevButton_clicked(); break;
         case 8: _t->on_tempNextButton_clicked(); break;
-        case 9: _t->onStackPageChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 10: _t->on_countryCB_currentIndexChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 9: _t->onStackPageChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 10: _t->on_countryCB_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 11: _t->handlePasswordChanged(); break;
         case 12: _t->checkFormCompleteness(); break;
         case 13: _t->on_koreanButton_clicked(); break;
         case 14: _t->on_englishButton_clicked(); break;
-        case 15: _t->changeLanguage((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 16: _t->updatePasswordIndicators((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QList<QLabel*>>>(_a[2]))); break;
-        case 17: _t->onCameraError((*reinterpret_cast< std::add_pointer_t<QCamera::Error>>(_a[1]))); break;
+        case 15: _t->changeLanguage((*reinterpret_cast< const QString(*)>(_a[1]))); break;
+        case 16: _t->updatePasswordIndicators((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< const QList<QLabel*>(*)>(_a[2]))); break;
+        case 17: _t->onCameraError((*reinterpret_cast< QCamera::Error(*)>(_a[1]))); break;
         case 18: _t->goToStartPage(); break;
         case 19: _t->startCamera(); break;
         case 20: _t->stopCamera(); break;
+        case 21: _t->onSocketReadyRead(); break;
         default: ;
         }
-    }
-    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
-        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        default: *reinterpret_cast<int*>(_a[0]) = -1; break;
         case 16:
             switch (*reinterpret_cast<int*>(_a[1])) {
-            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 1:
-                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QList<QLabel*> >(); break;
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QList<QLabel*> >(); break;
+            }
+            break;
+        case 17:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 0:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QCamera::Error >(); break;
             }
             break;
         }
     }
 }
+
+QT_INIT_METAOBJECT const QMetaObject MainWindow::staticMetaObject = { {
+    QMetaObject::SuperData::link<QMainWindow::staticMetaObject>(),
+    qt_meta_stringdata_MainWindow.data,
+    qt_meta_data_MainWindow,
+    qt_static_metacall,
+    nullptr,
+    nullptr
+} };
+
 
 const QMetaObject *MainWindow::metaObject() const
 {
@@ -248,7 +217,7 @@ const QMetaObject *MainWindow::metaObject() const
 void *MainWindow::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_ZN10MainWindowE.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_MainWindow.stringdata0))
         return static_cast<void*>(this);
     return QMainWindow::qt_metacast(_clname);
 }
@@ -259,15 +228,15 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 21)
+        if (_id < 22)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 21;
-    }
-    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 21)
+        _id -= 22;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 22)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 21;
+        _id -= 22;
     }
     return _id;
 }
 QT_WARNING_POP
+QT_END_MOC_NAMESPACE

@@ -1,56 +1,53 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'camerawidget.h'
 **
-** Created by: The Qt Meta Object Compiler version 68 (Qt 6.8.3)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.14.2)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "camerawidget.h"
-#include <QtCore/qmetatype.h>
-
-#include <QtCore/qtmochelpers.h>
-
 #include <memory>
-
-
-#include <QtCore/qxptype_traits.h>
+#include "camerawidget.h"
+#include <QtCore/qbytearray.h>
+#include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'camerawidget.h' doesn't include <QObject>."
-#elif Q_MOC_OUTPUT_REVISION != 68
-#error "This file was generated using the moc from 6.8.3. It"
+#elif Q_MOC_OUTPUT_REVISION != 67
+#error "This file was generated using the moc from 5.14.2. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
-#ifndef Q_CONSTINIT
-#define Q_CONSTINIT
-#endif
-
+QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-QT_WARNING_DISABLE_GCC("-Wuseless-cast")
-namespace {
-struct qt_meta_tag_ZN12CameraWidgetE_t {};
-} // unnamed namespace
+struct qt_meta_stringdata_CameraWidget_t {
+    QByteArrayData data[5];
+    char stringdata0[59];
+};
+#define QT_MOC_LITERAL(idx, ofs, len) \
+    Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
+    qptrdiff(offsetof(qt_meta_stringdata_CameraWidget_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
+    )
+static const qt_meta_stringdata_CameraWidget_t qt_meta_stringdata_CameraWidget = {
+    {
+QT_MOC_LITERAL(0, 0, 12), // "CameraWidget"
+QT_MOC_LITERAL(1, 13, 13), // "updateOverlay"
+QT_MOC_LITERAL(2, 27, 0), // ""
+QT_MOC_LITERAL(3, 28, 16), // "isPersonDetected"
+QT_MOC_LITERAL(4, 45, 13) // "detectionRect"
 
+    },
+    "CameraWidget\0updateOverlay\0\0"
+    "isPersonDetected\0detectionRect"
+};
+#undef QT_MOC_LITERAL
 
-#ifdef QT_MOC_HAS_STRINGDATA
-static constexpr auto qt_meta_stringdata_ZN12CameraWidgetE = QtMocHelpers::stringData(
-    "CameraWidget",
-    "updateOverlay",
-    "",
-    "isPersonDetected",
-    "detectionRect"
-);
-#else  // !QT_MOC_HAS_STRINGDATA
-#error "qtmochelpers.h not found or too old."
-#endif // !QT_MOC_HAS_STRINGDATA
-
-Q_CONSTINIT static const uint qt_meta_data_ZN12CameraWidgetE[] = {
+static const uint qt_meta_data_CameraWidget[] = {
 
  // content:
-      12,       // revision
+       8,       // revision
        0,       // classname
        0,    0, // classinfo
        1,   14, // methods
@@ -60,8 +57,8 @@ Q_CONSTINIT static const uint qt_meta_data_ZN12CameraWidgetE[] = {
        0,       // flags
        0,       // signalCount
 
- // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    2,   20,    2, 0x0a,    1 /* Public */,
+ // slots: name, argc, parameters, tag, flags
+       1,    2,   19,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Bool, QMetaType::QRect,    3,    4,
@@ -69,33 +66,27 @@ Q_CONSTINIT static const uint qt_meta_data_ZN12CameraWidgetE[] = {
        0        // eod
 };
 
-Q_CONSTINIT const QMetaObject CameraWidget::staticMetaObject = { {
-    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
-    qt_meta_stringdata_ZN12CameraWidgetE.offsetsAndSizes,
-    qt_meta_data_ZN12CameraWidgetE,
-    qt_static_metacall,
-    nullptr,
-    qt_incomplete_metaTypeArray<qt_meta_tag_ZN12CameraWidgetE_t,
-        // Q_OBJECT / Q_GADGET
-        QtPrivate::TypeAndForceComplete<CameraWidget, std::true_type>,
-        // method 'updateOverlay'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QRect &, std::false_type>
-    >,
-    nullptr
-} };
-
 void CameraWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
-    auto *_t = static_cast<CameraWidget *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
+        auto *_t = static_cast<CameraWidget *>(_o);
+        Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->updateOverlay((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QRect>>(_a[2]))); break;
+        case 0: _t->updateOverlay((*reinterpret_cast< bool(*)>(_a[1])),(*reinterpret_cast< const QRect(*)>(_a[2]))); break;
         default: ;
         }
     }
 }
+
+QT_INIT_METAOBJECT const QMetaObject CameraWidget::staticMetaObject = { {
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
+    qt_meta_stringdata_CameraWidget.data,
+    qt_meta_data_CameraWidget,
+    qt_static_metacall,
+    nullptr,
+    nullptr
+} };
+
 
 const QMetaObject *CameraWidget::metaObject() const
 {
@@ -105,7 +96,7 @@ const QMetaObject *CameraWidget::metaObject() const
 void *CameraWidget::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_ZN12CameraWidgetE.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_CameraWidget.stringdata0))
         return static_cast<void*>(this);
     return QWidget::qt_metacast(_clname);
 }
@@ -119,12 +110,12 @@ int CameraWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         if (_id < 1)
             qt_static_metacall(this, _c, _id, _a);
         _id -= 1;
-    }
-    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         if (_id < 1)
-            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+            *reinterpret_cast<int*>(_a[0]) = -1;
         _id -= 1;
     }
     return _id;
 }
 QT_WARNING_POP
+QT_END_MOC_NAMESPACE

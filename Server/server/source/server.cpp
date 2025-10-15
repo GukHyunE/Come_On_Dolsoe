@@ -75,6 +75,24 @@ static void handle_line(ClientInfo* self, string line) {
         return;
     }
 
+    // 사용자 정보 저장 (키오스크 -> 서버)
+    if(cmd == "STORE") {
+        handle_store_info(ctx, self, tok);
+        return;
+    }
+
+    // 로봇 등록 (로봇 -> 서버)
+    if(cmd == "ROBOT_READY") {
+        handle_robot_ready(ctx, self, tok);
+        return;
+    }
+
+    // 로봇에게 비밀번호 전송 명령 (키오스크 -> 서버)
+    if(cmd == "SEND_TO_ROBOT") {
+        handle_send_password_to_robot(ctx, self, tok);
+        return;
+    }
+
     /*
     ***************************예시 명령처리들***************************
     // 1) 헬스체크
