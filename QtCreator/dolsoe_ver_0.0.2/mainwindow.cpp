@@ -17,7 +17,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     // The root cause of the margin issue is the layout on the centralwidget
     // set in the .ui file. Get that layout and set its margins to zero.
-    ui->centralwidget->layout()->setContentsMargins(0, 0, 0, 0);
+    if (ui->centralwidget->layout()) {
+        ui->centralwidget->layout()->setContentsMargins(0, 0, 0, 0);
+    }
     setFixedSize(800, 480);
 
     // --- Image/GIF Display Setup ---
@@ -26,6 +28,10 @@ MainWindow::MainWindow(QWidget *parent)
     m_imageDisplayLabel->setScaledContents(true);
     m_imageDisplayLabel->hide();
     m_imageDisplayLabel->lower(); // Send to back
+
+    // Apply white background to statusLabel on workingPage
+    ui->statusLabel->setStyleSheet("background-color: white; padding: 5px;");
+    ui->statusLabel->move(40, 420); // Move statusLabel below buttons
 
     m_workingMovie = new QMovie(":/images/working.gif");
     m_restPixmap = QPixmap(":/images/rest.png");
@@ -68,12 +74,14 @@ void MainWindow::connectToServer()
     QString serverAddress = "10.10.16.153";
     quint16 serverPort = 5000;
     ui->statusLabel->setText(m_currentLanguage == "KR" ? "서버에 연결하는 중..." : "Connecting to server...");
+    ui->statusLabel->adjustSize(); // Adjust size after setting text
     m_socket->connectToHost(serverAddress, serverPort);
 }
 
 void MainWindow::onConnected()
 {
     ui->statusLabel->setText(m_currentLanguage == "KR" ? "서버에 연결됨. 대기 중..." : "Connected to server. Waiting...");
+    ui->statusLabel->adjustSize(); // Adjust size after setting text
     // 로봇 ID를 'dolsoe_01'로 가정하고 서버에 준비 완료 메시지 전송
     m_socket->write("ROBOT_READY@dolsoe_01\n");
 }
@@ -86,6 +94,7 @@ void MainWindow::onReadyRead()
     if (message.startsWith("ASSIGN_TASK")) {
         m_assignedPassword = message.section('@', 1, 1);
         ui->statusLabel->setText(m_currentLanguage == "KR" ? "작업 할당됨. 이제부터 사용 가능합니다." : "Task assigned. Ready for use.");
+        ui->statusLabel->adjustSize(); // Adjust size after setting text
         // 비밀번호를 받으면, 정지 상태를 해제
         m_isStopped = false;
         updateTexts();
@@ -95,6 +104,7 @@ void MainWindow::onReadyRead()
 void MainWindow::onDisconnected()
 {
     ui->statusLabel->setText(m_currentLanguage == "KR" ? "서버 연결 끊김. 5초 후 재시도..." : "Server disconnected. Retrying in 5 seconds...");
+    ui->statusLabel->adjustSize(); // Adjust size after setting text
     // 5초 후에 다시 연결 시도
     QTimer::singleShot(5000, this, &MainWindow::connectToServer);
 }
@@ -198,6 +208,7 @@ void MainWindow::on_carryPB_clicked()
     } else {
         ui->statusLabel->setText("Dolsoe is following you.");
     }
+    ui->statusLabel->adjustSize(); // Adjust size after setting text
 }
 
 void MainWindow::on_naviCB_activated(int index)
@@ -240,6 +251,7 @@ void MainWindow::on_naviCB_activated(int index)
                 break;
         }
     }
+    ui->statusLabel->adjustSize(); // Adjust size after setting text
 }
 
 void MainWindow::on_tempPB_clicked()

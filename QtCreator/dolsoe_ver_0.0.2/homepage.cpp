@@ -13,6 +13,7 @@ HomePage::HomePage(QWidget *parent)
     // Set up the text label
     m_homeTextLabel = new QLabel("돌쇠 퇴근해유~~", this);
     m_homeTextLabel->setAlignment(Qt::AlignCenter);
+    m_homeTextLabel->setStyleSheet("background-color: white; padding: 5px;");
 }
 
 HomePage::~HomePage()
@@ -27,6 +28,8 @@ void HomePage::resizeEvent(QResizeEvent *event)
         m_homeGifLabel->setGeometry(this->rect());
     }
     if (m_homeTextLabel) {
-        m_homeTextLabel->setGeometry(this->rect());
+        // Center the label
+        m_homeTextLabel->move( (this->width() - m_homeTextLabel->width()) / 2,
+                             (this->height() - m_homeTextLabel->height()) / 2 );
     }
 }
