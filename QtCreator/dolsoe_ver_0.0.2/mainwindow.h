@@ -6,6 +6,7 @@
 #include <QLabel>
 #include <QMovie>
 #include <QPixmap>
+#include "homepage.h" // Include the new HomePage class
 
 class NumPad; // Forward declaration
 
@@ -65,8 +66,6 @@ private:
     bool m_isBusy;
 
     // Hone page members
-    QWidget *m_homePage;
-    QLabel *m_homeGifLabel;
-    QMovie *m_homeMovie;
+    HomePage *m_homePage;
 };
 #endif // MAINWINDOW_H

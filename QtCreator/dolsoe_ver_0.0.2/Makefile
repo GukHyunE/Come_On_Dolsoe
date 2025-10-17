@@ -54,17 +54,21 @@ OBJECTS_DIR   = ./
 
 SOURCES       = main.cpp \
 		mainwindow.cpp \
-		numpad.cpp qrc_translations.cpp \
+		numpad.cpp \
+		homepage.cpp qrc_translations.cpp \
 		qrc_image.cpp \
 		moc_mainwindow.cpp \
-		moc_numpad.cpp
+		moc_numpad.cpp \
+		moc_homepage.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		numpad.o \
+		homepage.o \
 		qrc_translations.o \
 		qrc_image.o \
 		moc_mainwindow.o \
-		moc_numpad.o
+		moc_numpad.o \
+		moc_homepage.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -158,9 +162,11 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		dolsoe.pro mainwindow.h \
-		numpad.h main.cpp \
+		numpad.h \
+		homepage.h main.cpp \
 		mainwindow.cpp \
-		numpad.cpp
+		numpad.cpp \
+		homepage.cpp
 QMAKE_TARGET  = dolsoe
 DESTDIR       = 
 TARGET        = dolsoe
@@ -379,8 +385,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents translations.qrc image.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h numpad.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp mainwindow.cpp numpad.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h numpad.h homepage.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp mainwindow.cpp numpad.cpp homepage.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui numpad.ui $(DISTDIR)/
 	$(COPY_FILE) --parents dolsoe_ko.ts dolsoe_en.ts $(DISTDIR)/
 
@@ -428,10 +434,11 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -O2 -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_numpad.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_numpad.cpp moc_homepage.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_numpad.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_numpad.cpp moc_homepage.cpp
 moc_mainwindow.cpp: mainwindow.h \
+		homepage.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/ubuntu/Final/dolsoe/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/ubuntu/Final/dolsoe -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include mainwindow.h -o moc_mainwindow.cpp
@@ -440,6 +447,11 @@ moc_numpad.cpp: numpad.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/ubuntu/Final/dolsoe/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/ubuntu/Final/dolsoe -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include numpad.h -o moc_numpad.cpp
+
+moc_homepage.cpp: homepage.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/ubuntu/Final/dolsoe/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/ubuntu/Final/dolsoe -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include homepage.h -o moc_homepage.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -466,10 +478,12 @@ compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_heade
 
 ####### Compile
 
-main.o: main.cpp mainwindow.h
+main.o: main.cpp mainwindow.h \
+		homepage.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 mainwindow.o: mainwindow.cpp mainwindow.h \
+		homepage.h \
 		ui_mainwindow.h \
 		numpad.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o mainwindow.cpp
@@ -477,6 +491,9 @@ mainwindow.o: mainwindow.cpp mainwindow.h \
 numpad.o: numpad.cpp numpad.h \
 		ui_numpad.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o numpad.o numpad.cpp
+
+homepage.o: homepage.cpp homepage.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o homepage.o homepage.cpp
 
 qrc_translations.o: qrc_translations.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_translations.o qrc_translations.cpp
@@ -489,6 +506,9 @@ moc_mainwindow.o: moc_mainwindow.cpp
 
 moc_numpad.o: moc_numpad.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_numpad.o moc_numpad.cpp
+
+moc_homepage.o: moc_homepage.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_homepage.o moc_homepage.cpp
 
 ####### Install
 

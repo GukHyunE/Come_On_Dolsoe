@@ -18,11 +18,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    numpad.cpp
+    numpad.cpp \
+    homepage.cpp
 
 HEADERS += \
     mainwindow.h \
-    numpad.h
+    numpad.h \
+    homepage.h
 
 FORMS += \
     mainwindow.ui \

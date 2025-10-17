@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "numpad.h"
+#include <QGridLayout>
 #include <QMessageBox>
 #include <QTimer>
 
@@ -14,11 +15,15 @@ MainWindow::MainWindow(QWidget *parent)
     , m_isBusy(false)
 {
     ui->setupUi(this);
+    // The root cause of the margin issue is the layout on the centralwidget
+    // set in the .ui file. Get that layout and set its margins to zero.
+    ui->centralwidget->layout()->setContentsMargins(0, 0, 0, 0);
     setFixedSize(800, 480);
 
     // --- Image/GIF Display Setup ---
     m_imageDisplayLabel = new QLabel(ui->centralwidget);
     m_imageDisplayLabel->setAlignment(Qt::AlignCenter);
+    m_imageDisplayLabel->setScaledContents(true);
     m_imageDisplayLabel->hide();
     m_imageDisplayLabel->lower(); // Send to back
 
@@ -29,38 +34,13 @@ MainWindow::MainWindow(QWidget *parent)
     updateImageDisplay(); // Update display immediately
 
     // --- Home Page Setup ---
-    m_homePage = new QWidget();
-    m_homeGifLabel = new QLabel(m_homePage); // GIF is the background
-    m_homeMovie = new QMovie(":/images/home.gif");
-    m_homeGifLabel->setMovie(m_homeMovie);
-    m_homeGifLabel->setScaledContents(true);
-
-    // Widgets to overlay
-    QLabel *homeText = new QLabel("돌쇠 퇴근해유~~", m_homePage);
-    homeText->setAlignment(Qt::AlignCenter);
-
-    // Layout for the home page
-    QVBoxLayout *homePageLayout = new QVBoxLayout(m_homePage);
-    homePageLayout->setContentsMargins(0, 0, 0, 0);
-    homePageLayout->setSpacing(0);
-    homePageLayout->addWidget(m_homeGifLabel);
-    m_homePage->setLayout(homePageLayout);
-
-    // Layout for the overlay widgets
-    QVBoxLayout *overlayLayout = new QVBoxLayout();
-    overlayLayout->setContentsMargins(0, 0, 0, 0);
-    overlayLayout->setSpacing(0);
-    overlayLayout->addStretch();
-    overlayLayout->addWidget(homeText);
-    overlayLayout->addStretch();
-
-    // Container for overlay widgets
-    QWidget *overlayContainer = new QWidget(m_homePage);
-    overlayContainer->setLayout(overlayLayout);
-    overlayContainer->setGeometry(m_homePage->rect());
-    overlayContainer->show();
+    m_homePage = new HomePage(this);
+    m_homePage->getHomeMovie()->start(); // Start the home GIF animation immediately
 
     ui->stackedWidget->addWidget(m_homePage);
+    // int homePageIndex = ui->stackedWidget->indexOf(m_homePage);
+    // ui->stackedWidget->setCurrentIndex(homePageIndex); // Set m_homePage as the initial page
+    // m_imageDisplayLabel->hide(); // Hide the working/rest image when home page is shown
 
     updateTexts(); // Set initial texts
 
@@ -134,7 +114,7 @@ void MainWindow::updateTexts()
         // Set Korean texts
         ui->langKrPB->setText("한국어");
         ui->langEnPB->setText("English");
-        ui->label->setText("바프찍는돌쇠");
+        // ui->label->setText("바프찍는돌쇠");
         ui->carryPB->setText("따라오너라");
         ui->endCB->setText("종료하거라");
         ui->label_2->setText("돌쇠 집가는 사진");
@@ -157,7 +137,7 @@ void MainWindow::updateTexts()
         // Set English texts
         ui->langKrPB->setText("한국어");
         ui->langEnPB->setText("English");
-        ui->label->setText("Dolsoe taking a body profile photo");
+        // ui->label->setText("Dolsoe taking a body profile photo");
         ui->carryPB->setText("Follow Me");
         ui->endCB->setText("Shutdown");
         ui->label_2->setText("Dolsoe going home");
@@ -183,7 +163,7 @@ void MainWindow::updateImageDisplay()
 {
     if (m_isStopped) {
         m_workingMovie->stop();
-        m_imageDisplayLabel->setPixmap(m_restPixmap.scaled(m_imageDisplayLabel->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        m_imageDisplayLabel->setPixmap(m_restPixmap);
         m_imageDisplayLabel->show();
     } else {
         if (m_isBusy) {
@@ -331,8 +311,9 @@ void MainWindow::onPasswordEntered(const QString &password)
                 }
                 break;
             case NumpadReason::Shutdown:
+                m_imageDisplayLabel->hide(); // Hide the image display label
                 ui->stackedWidget->setCurrentWidget(m_homePage);
-                m_homeMovie->start();
+                m_homePage->getHomeMovie()->start();
                 m_assignedPassword.clear();
                 onConnected(); // 다시 'ROBOT_READY' 전송
                 break;

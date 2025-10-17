@@ -19,6 +19,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -27,9 +28,9 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
+    QVBoxLayout *verticalLayout;
     QStackedWidget *stackedWidget;
     QWidget *workingPage;
-    QLabel *label;
     QWidget *horizontalLayoutWidget;
     QHBoxLayout *horizontalLayout;
     QPushButton *carryPB;
@@ -52,17 +53,15 @@ public:
         MainWindow->resize(800, 480);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        verticalLayout = new QVBoxLayout(centralwidget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         stackedWidget = new QStackedWidget(centralwidget);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
-        stackedWidget->setGeometry(QRect(19, 9, 771, 431));
         workingPage = new QWidget();
         workingPage->setObjectName(QString::fromUtf8("workingPage"));
-        label = new QLabel(workingPage);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(130, 40, 351, 201));
         horizontalLayoutWidget = new QWidget(workingPage);
         horizontalLayoutWidget->setObjectName(QString::fromUtf8("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(130, 260, 491, 41));
+        horizontalLayoutWidget->setGeometry(QRect(120, 370, 491, 41));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -105,6 +104,9 @@ public:
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setGeometry(QRect(220, 370, 141, 17));
         stackedWidget->addWidget(gohomePage);
+
+        verticalLayout->addWidget(stackedWidget);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -125,7 +127,6 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        label->setText(QApplication::translate("MainWindow", "\353\260\224\355\224\204\354\260\215\353\212\224\353\217\214\354\207\240", nullptr));
         carryPB->setText(QApplication::translate("MainWindow", "\353\224\260\353\235\274\354\230\244\353\204\210\353\235\274", nullptr));
         tempPB->setText(QApplication::translate("MainWindow", "\354\240\225\354\247\200\355\225\230\352\261\260\353\235\274", nullptr));
         endCB->setText(QApplication::translate("MainWindow", "\354\242\205\353\243\214\355\225\230\352\261\260\353\235\274", nullptr));
