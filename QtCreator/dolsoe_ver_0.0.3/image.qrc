@@ -1,0 +1,8 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+<qresource prefix="/images">
+    <file alias="working.gif">working.gif</file>
+    <file alias="rest.png">rest.png</file>
+    <file alias="home.gif">home.gif</file>
+</qresource>
+</RCC>

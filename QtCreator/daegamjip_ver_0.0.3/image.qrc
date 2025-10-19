@@ -1,0 +1,13 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+<qresource prefix="/images">
+    <file alias="daegamjip.png">../image/daegamjip.png</file>
+    <file alias="title_kor.png">../image/title_kor.png</file>
+    <file alias="title_eng.png">../image/title_eng.png</file>
+    <file alias="dolsoe_attention.png">../image/dolsoe_attention.png</file>
+    <file alias="goodbye.png">../image/goodbye.png</file>
+    <file alias="namu.gif">../image/namu.gif</file>
+    <file alias="studying.png">../image/studying.png</file>
+    <file alias="carrying.jpg">../image/carrying.jpg</file>
+</qresource>
+</RCC>
