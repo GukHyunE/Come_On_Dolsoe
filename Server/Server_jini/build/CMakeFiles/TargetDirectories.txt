@@ -1,0 +1,8 @@
+/home/ubuntu/Final/Server/build/CMakeFiles/rebuild_cache.dir
+/home/ubuntu/Final/Server/build/CMakeFiles/edit_cache.dir
+/home/ubuntu/Final/Server/build/server/CMakeFiles/rebuild_cache.dir
+/home/ubuntu/Final/Server/build/server/CMakeFiles/edit_cache.dir
+/home/ubuntu/Final/Server/build/server/CMakeFiles/server.dir
+/home/ubuntu/Final/Server/build/client/CMakeFiles/rebuild_cache.dir
+/home/ubuntu/Final/Server/build/client/CMakeFiles/edit_cache.dir
+/home/ubuntu/Final/Server/build/client/CMakeFiles/client.dir
