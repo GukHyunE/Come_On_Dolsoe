@@ -8,6 +8,7 @@ add_executable(server
   source/main.cpp
   source/server.cpp
   source/server_handlers.cpp
+  source/file_receiver.cpp
 )
 
 # 서버에서 헤더 include 경로

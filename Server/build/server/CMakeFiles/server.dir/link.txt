@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/server.dir/source/main.cpp.o CMakeFiles/server.dir/source/server.cpp.o CMakeFiles/server.dir/source/server_handlers.cpp.o  -o ../bin/server  -lpthread 
+/usr/bin/c++ -g CMakeFiles/server.dir/source/main.cpp.o CMakeFiles/server.dir/source/server.cpp.o CMakeFiles/server.dir/source/server_handlers.cpp.o CMakeFiles/server.dir/source/file_receiver.cpp.o -o ../bin/server 
