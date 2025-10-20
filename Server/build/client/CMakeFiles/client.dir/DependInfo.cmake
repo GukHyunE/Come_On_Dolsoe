@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ubuntu/turtlebot3_ws/Come_On_Dolsoe/Server/client/source/client.cpp" "client/CMakeFiles/client.dir/source/client.cpp.o" "gcc" "client/CMakeFiles/client.dir/source/client.cpp.o.d"
   "/home/ubuntu/turtlebot3_ws/Come_On_Dolsoe/Server/client/source/client_handlers.cpp" "client/CMakeFiles/client.dir/source/client_handlers.cpp.o" "gcc" "client/CMakeFiles/client.dir/source/client_handlers.cpp.o.d"
+  "/home/ubuntu/turtlebot3_ws/Come_On_Dolsoe/Server/client/source/file_receiver_client.cpp" "client/CMakeFiles/client.dir/source/file_receiver_client.cpp.o" "gcc" "client/CMakeFiles/client.dir/source/file_receiver_client.cpp.o.d"
   "/home/ubuntu/turtlebot3_ws/Come_On_Dolsoe/Server/client/source/main.cpp" "client/CMakeFiles/client.dir/source/main.cpp.o" "gcc" "client/CMakeFiles/client.dir/source/main.cpp.o.d"
   )
 

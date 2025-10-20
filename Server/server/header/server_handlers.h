@@ -23,6 +23,7 @@ void handle_echo(ServerContext& ctx, ClientInfo* self,
 // 키오스크 -> 서버
 void handle_store_info(ServerContext& ctx, ClientInfo* self, const vector<string>& tok);
 void handle_send_password_to_robot(ServerContext& ctx, ClientInfo* self, const vector<string>& tok);
+void handle_send_npy(ServerContext& ctx, ClientInfo* self, const vector<string>& tok);
 
 // 로봇 -> 서버
 void handle_robot_ready(ServerContext& ctx, ClientInfo* self, const vector<string>& tok);

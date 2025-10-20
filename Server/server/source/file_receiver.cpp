@@ -18,9 +18,13 @@
 using namespace std;
 
 namespace {
+    constexpr const char* FORWARD_TARGET_IP = "192.168.0.22";
+    constexpr uint16_t FORWARD_TARGET_PORT = 5001;
+
     thread g_worker;
     atomic<bool> g_running{false};
     atomic<int> g_listen_fd{-1};
+    string g_save_path;
 
     bool recv_exact(int fd, char* buf, size_t len) {
         size_t off = 0;
@@ -34,6 +38,22 @@ namespace {
                 continue;
             } else {
                 perror("[FILE] recv");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    bool send_all_data(int fd, const char* buf, size_t len) {
+        size_t off = 0;
+        while (off < len) {
+            ssize_t k = send(fd, buf + off, len - off, MSG_NOSIGNAL);
+            if (k > 0) {
+                off += static_cast<size_t>(k);
+            } else if (k < 0 && errno == EINTR) {
+                continue;
+            } else {
+                perror("[FILE] send");
                 return false;
             }
         }
@@ -168,6 +188,15 @@ namespace {
 
             if (receive_file_data(cs, expected_size, output_path)) {
                 cout << "[FILE] Stored file at '" << output_path << "' (" << expected_size << " bytes)\n";
+                int rc = send_file_to_target(output_path.string(),
+                                             FORWARD_TARGET_IP,
+                                             FORWARD_TARGET_PORT);
+                if (rc == 0) {
+                    cout << "[FILE] Forwarded file to "
+                         << FORWARD_TARGET_IP << ":" << FORWARD_TARGET_PORT << "\n";
+                } else {
+                    cerr << "[FILE] Forward failed (code " << rc << ")\n";
+                }
             } else {
                 cerr << "[FILE] Failed to store file at '" << output_path << "'\n";
             }
@@ -188,6 +217,7 @@ int start_file_receiver(uint16_t port, const string& save_path) {
         return -10;
     }
 
+    g_save_path = save_path;
     promise<int> ready;
     auto fut = ready.get_future();
     g_worker = thread(file_receiver_thread, port, save_path, move(ready));
@@ -209,4 +239,92 @@ void stop_file_receiver() {
 
     if (g_worker.joinable()) g_worker.join();
     g_listen_fd.store(-1);
+}
+
+const std::string& get_file_save_path() {
+    return g_save_path;
+}
+
+int send_file_to_target(const std::string& file_path,
+                        const std::string& ip,
+                        uint16_t port) {
+    namespace fs = std::filesystem;
+
+    fs::path path(file_path);
+    std::error_code ec;
+    if (!fs::exists(path, ec) || !fs::is_regular_file(path, ec)) {
+        std::cerr << "[FILE] File not found: " << file_path << "\n";
+        return -1;
+    }
+
+    uint64_t file_size = fs::file_size(path, ec);
+    if (ec) {
+        std::cerr << "[FILE] Failed to get size of " << file_path << ": " << ec.message() << "\n";
+        return -2;
+    }
+    ifstream ifs(path, ios::binary);
+    if (!ifs) {
+        std::cerr << "[FILE] Failed to open " << file_path << " for reading\n";
+        return -3;
+    }
+
+    int sock = socket(AF_INET, SOCK_STREAM, 0);
+    if (sock < 0) {
+        perror("[FILE] socket");
+        return -4;
+    }
+
+    sockaddr_in addr{};
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(port);
+    if (inet_pton(AF_INET, ip.c_str(), &addr.sin_addr) != 1) {
+        std::cerr << "[FILE] Invalid IP address: " << ip << "\n";
+        close(sock);
+        return -5;
+    }
+
+    if (connect(sock, reinterpret_cast<sockaddr*>(&addr), sizeof(addr)) < 0) {
+        perror("[FILE] connect");
+        close(sock);
+        return -6;
+    }
+
+    cout << "[FILE] Sending '" << path << "' (" << file_size
+         << " bytes) to " << ip << ":" << port << "\n";
+
+    unsigned char header[8];
+    uint64_t size_copy = file_size;
+    for (int i = 7; i >= 0; --i) {
+        header[i] = static_cast<unsigned char>(size_copy & 0xFF);
+        size_copy >>= 8;
+    }
+
+    if (!send_all_data(sock, reinterpret_cast<const char*>(header), sizeof(header))) {
+        std::cerr << "[FILE] Failed to send file header\n";
+        close(sock);
+        return -7;
+    }
+
+    std::vector<char> buffer(64 * 1024);
+    uint64_t remaining = file_size;
+    while (remaining > 0) {
+        size_t to_read = static_cast<size_t>(std::min<uint64_t>(buffer.size(), remaining));
+        ifs.read(buffer.data(), static_cast<std::streamsize>(to_read));
+        std::streamsize got = ifs.gcount();
+        if (got <= 0) {
+            std::cerr << "[FILE] Failed while reading file data\n";
+            close(sock);
+            return -8;
+        }
+        if (!send_all_data(sock, buffer.data(), static_cast<size_t>(got))) {
+            std::cerr << "[FILE] Failed while sending file data\n";
+            close(sock);
+            return -9;
+        }
+        remaining -= static_cast<uint64_t>(got);
+    }
+
+    close(sock);
+    cout << "[FILE] Transfer complete\n";
+    return 0;
 }

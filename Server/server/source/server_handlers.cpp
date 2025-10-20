@@ -1,7 +1,9 @@
 #include "server_handlers.h"
 #include "server_protocol.h"   // send_all_line, split_at 등
+#include "file_receiver.h"
 
 #include <algorithm>
+#include <filesystem>
 #include <sys/socket.h>
 #include <unistd.h>
 #include <errno.h>
@@ -115,4 +117,48 @@ void handle_send_password_to_robot(ServerContext& ctx, ClientInfo* self, const v
 
     // 키오스크에게 성공 응답
     send_all_line(self->fd, "ACK@SEND_TO_ROBOT");
+}
+
+// 저장된 NPY 파일을 지정한 IP/포트로 전송
+// 요청 형식: SEND_NPY@<ip>@<port>
+void handle_send_npy(ServerContext& ctx, ClientInfo* self, const vector<string>& tok) {
+    (void)ctx;
+    if (tok.size() < 3) {
+        send_all_line(self->fd, "ERR@SEND_NPY@FORMAT");
+        return;
+    }
+
+    const string& ip = tok[1];
+    const string& port_str = tok[2];
+    int port = 0;
+    try {
+        port = stoi(port_str);
+    } catch (...) {
+        send_all_line(self->fd, "ERR@SEND_NPY@PORT");
+        return;
+    }
+
+    if (port <= 0 || port > 65535) {
+        send_all_line(self->fd, "ERR@SEND_NPY@PORT_RANGE");
+        return;
+    }
+
+    const string& path = get_file_save_path();
+    if (path.empty()) {
+        send_all_line(self->fd, "ERR@SEND_NPY@NO_PATH");
+        return;
+    }
+
+    namespace fs = std::filesystem;
+    if (!fs::exists(path)) {
+        send_all_line(self->fd, "ERR@SEND_NPY@NO_FILE");
+        return;
+    }
+
+    int rc = send_file_to_target(path, ip, static_cast<uint16_t>(port));
+    if (rc == 0) {
+        send_all_line(self->fd, "ACK@SEND_NPY");
+    } else {
+        send_all_line(self->fd, string("ERR@SEND_NPY@FAIL@") + to_string(rc));
+    }
 }

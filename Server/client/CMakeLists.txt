@@ -6,6 +6,7 @@ add_executable(client
   source/main.cpp
   source/client.cpp
   source/client_handlers.cpp
+  source/file_receiver_client.cpp
 )
 
 target_include_directories(client

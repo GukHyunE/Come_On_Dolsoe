@@ -1,1 +1,1 @@
-/usr/bin/c++ -g CMakeFiles/client.dir/source/main.cpp.o CMakeFiles/client.dir/source/client.cpp.o CMakeFiles/client.dir/source/client_handlers.cpp.o -o ../bin/client 
+/usr/bin/c++ -g CMakeFiles/client.dir/source/main.cpp.o CMakeFiles/client.dir/source/client.cpp.o CMakeFiles/client.dir/source/client_handlers.cpp.o CMakeFiles/client.dir/source/file_receiver_client.cpp.o -o ../bin/client 

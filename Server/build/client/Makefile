@@ -178,6 +178,30 @@ source/client_handlers.cpp.s:
 	cd /home/ubuntu/turtlebot3_ws/Come_On_Dolsoe/Server/build && $(MAKE) $(MAKESILENT) -f client/CMakeFiles/client.dir/build.make client/CMakeFiles/client.dir/source/client_handlers.cpp.s
 .PHONY : source/client_handlers.cpp.s
 
+source/file_receiver_client.o: source/file_receiver_client.cpp.o
+.PHONY : source/file_receiver_client.o
+
+# target to build an object file
+source/file_receiver_client.cpp.o:
+	cd /home/ubuntu/turtlebot3_ws/Come_On_Dolsoe/Server/build && $(MAKE) $(MAKESILENT) -f client/CMakeFiles/client.dir/build.make client/CMakeFiles/client.dir/source/file_receiver_client.cpp.o
+.PHONY : source/file_receiver_client.cpp.o
+
+source/file_receiver_client.i: source/file_receiver_client.cpp.i
+.PHONY : source/file_receiver_client.i
+
+# target to preprocess a source file
+source/file_receiver_client.cpp.i:
+	cd /home/ubuntu/turtlebot3_ws/Come_On_Dolsoe/Server/build && $(MAKE) $(MAKESILENT) -f client/CMakeFiles/client.dir/build.make client/CMakeFiles/client.dir/source/file_receiver_client.cpp.i
+.PHONY : source/file_receiver_client.cpp.i
+
+source/file_receiver_client.s: source/file_receiver_client.cpp.s
+.PHONY : source/file_receiver_client.s
+
+# target to generate assembly for a file
+source/file_receiver_client.cpp.s:
+	cd /home/ubuntu/turtlebot3_ws/Come_On_Dolsoe/Server/build && $(MAKE) $(MAKESILENT) -f client/CMakeFiles/client.dir/build.make client/CMakeFiles/client.dir/source/file_receiver_client.cpp.s
+.PHONY : source/file_receiver_client.cpp.s
+
 source/main.o: source/main.cpp.o
 .PHONY : source/main.o
 
@@ -217,6 +241,9 @@ help:
 	@echo "... source/client_handlers.o"
 	@echo "... source/client_handlers.i"
 	@echo "... source/client_handlers.s"
+	@echo "... source/file_receiver_client.o"
+	@echo "... source/file_receiver_client.i"
+	@echo "... source/file_receiver_client.s"
 	@echo "... source/main.o"
 	@echo "... source/main.i"
 	@echo "... source/main.s"

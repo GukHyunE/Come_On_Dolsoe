@@ -1,0 +1,30 @@
+# Build artifacts
+Server/build/
+Server/bin/
+Client/build/
+Client/bin/
+
+# Qt Creator build directories
+Server/QtCreator/build*/
+
+# Compiled objects and binaries
+*.o
+*.obj
+*.lo
+*.a
+*.la
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
+*.bin
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Local data
+Server/received/
+*.npy

@@ -8,7 +8,7 @@ using namespace std;
 
 namespace {
     constexpr int DEFAULT_PORT = 5000;
-    constexpr uint16_t FILE_RECEIVER_PORT = 12345;
+    constexpr uint16_t FILE_RECEIVER_PORT = 5001;
     const char* FILE_SAVE_PATH = "received/customer_feature.npy";
 }
 

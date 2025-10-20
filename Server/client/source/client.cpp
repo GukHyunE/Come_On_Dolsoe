@@ -1,6 +1,7 @@
 #include "client.h"
 #include "client_protocol.h"
 #include "client_handlers.h"
+#include "file_receiver_client.h"
 
 #include <arpa/inet.h>
 #include <netinet/in.h>
@@ -20,6 +21,11 @@
 using namespace std;
 
 static atomic<bool> g_running(true);
+
+namespace {
+    constexpr uint16_t FILE_LISTEN_PORT = 5001;
+    const char* FILE_SAVE_PATH = "received/customer_feature.npy";
+}
 
 // ----- 수신 스레드: 서버 메시지 읽어 출력 -----
 // 서버로부터 오는 데이터를 누적 버퍼(acc)에 쌓고
@@ -58,9 +64,18 @@ static void rx_thread_func(int sock) {
 int start_client(const char* server_ip, int port) {
     signal(SIGPIPE, SIG_IGN); // 끊긴 소켓에 send 시 프로세스 종료 방지
 
+    int file_rc = start_client_file_receiver(FILE_LISTEN_PORT, FILE_SAVE_PATH);
+    if (file_rc != 0) {
+        cerr << "[WARN] NPY listener failed to start (code " << file_rc << ").\n";
+    }
+
     // 소켓 생성
     int sock = socket(AF_INET, SOCK_STREAM, 0);
-    if (sock < 0) { perror("socket"); return 1; }
+    if (sock < 0) {
+        perror("socket");
+        stop_client_file_receiver();
+        return 1;
+    }
 
     // 서버 주소 설정
     sockaddr_in addr{};
@@ -69,6 +84,7 @@ int start_client(const char* server_ip, int port) {
     if (inet_pton(AF_INET, server_ip, &addr.sin_addr) != 1) {
         cerr << "Invalid IP: " << server_ip << "\n";
         close(sock);
+        stop_client_file_receiver();
         return 1;
     }
 
@@ -76,6 +92,7 @@ int start_client(const char* server_ip, int port) {
     if (connect(sock, (sockaddr*)&addr, sizeof(addr)) < 0) {
         perror("connect");
         close(sock);
+        stop_client_file_receiver();
         return 1;
     }
     cout << "[INFO] connected to " << server_ip << ":" << port
@@ -104,5 +121,6 @@ int start_client(const char* server_ip, int port) {
     rx.join();
     close(sock);
     cout << "[INFO] client exit\n";
+    stop_client_file_receiver();
     return 0;
 }

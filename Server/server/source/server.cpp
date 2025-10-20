@@ -93,6 +93,11 @@ static void handle_line(ClientInfo* self, string line) {
         return;
     }
 
+    if (cmd == "SEND_NPY") {
+        handle_send_npy(ctx, self, tok);
+        return;
+    }
+
     /*
     ***************************예시 명령처리들***************************
     // 1) 헬스체크
