@@ -1,7 +1,7 @@
 server/CMakeFiles/server.dir/source/main.cpp.o: \
- /home/ubuntu/Finaltest/Server/server/source/main.cpp \
+ /home/ubuntu/Come_On_Dolsoe/server/server/source/main.cpp \
  /usr/include/stdc-predef.h \
- /home/ubuntu/Finaltest/Server/server/header/server.h \
+ /home/ubuntu/Come_On_Dolsoe/server/server/header/server.h \
  /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -148,4 +148,4 @@ server/CMakeFiles/server.dir/source/main.cpp.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
- /home/ubuntu/Finaltest/Server/server/header/main.h
+ /home/ubuntu/Come_On_Dolsoe/server/server/header/main.h

@@ -1,8 +1,8 @@
 server/CMakeFiles/server.dir/source/server_handlers.cpp.o: \
- /home/ubuntu/Finaltest/Server/server/source/server_handlers.cpp \
+ /home/ubuntu/Come_On_Dolsoe/server/server/source/server_handlers.cpp \
  /usr/include/stdc-predef.h \
- /home/ubuntu/Finaltest/Server/server/header/server_handlers.h \
- /home/ubuntu/Finaltest/Server/server/header/session.h \
+ /home/ubuntu/Come_On_Dolsoe/server/server/header/server_handlers.h \
+ /home/ubuntu/Come_On_Dolsoe/server/server/header/session.h \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -175,7 +175,7 @@ server/CMakeFiles/server.dir/source/server_handlers.cpp.o: \
  /usr/include/c++/11/bits/node_handle.h \
  /usr/include/c++/11/bits/unordered_map.h \
  /usr/include/c++/11/bits/erase_if.h \
- /home/ubuntu/Finaltest/Server/server/header/server_protocol.h \
+ /home/ubuntu/Come_On_Dolsoe/server/server/header/server_protocol.h \
  /usr/include/c++/11/algorithm /usr/include/c++/11/bits/stl_algo.h \
  /usr/include/c++/11/bits/algorithmfwd.h \
  /usr/include/c++/11/bits/stl_heap.h \

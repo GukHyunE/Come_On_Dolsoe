@@ -1,8 +1,8 @@
 client/CMakeFiles/client.dir/source/client.cpp.o: \
- /home/ubuntu/Finaltest/Server/client/source/client.cpp \
+ /home/ubuntu/Come_On_Dolsoe/server/client/source/client.cpp \
  /usr/include/stdc-predef.h \
- /home/ubuntu/Finaltest/Server/client/header/client.h \
- /home/ubuntu/Finaltest/Server/client/header/client_protocol.h \
+ /home/ubuntu/Come_On_Dolsoe/server/client/header/client.h \
+ /home/ubuntu/Come_On_Dolsoe/server/client/header/client_protocol.h \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -151,7 +151,7 @@ client/CMakeFiles/client.dir/source/client.cpp.o: \
  /usr/include/x86_64-linux-gnu/asm/sockios.h \
  /usr/include/asm-generic/sockios.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
- /home/ubuntu/Finaltest/Server/client/header/client_handlers.h \
+ /home/ubuntu/Come_On_Dolsoe/server/client/header/client_handlers.h \
  /usr/include/arpa/inet.h /usr/include/netinet/in.h \
  /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum-generic.h \

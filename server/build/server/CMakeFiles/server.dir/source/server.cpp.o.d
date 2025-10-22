@@ -1,7 +1,7 @@
 server/CMakeFiles/server.dir/source/server.cpp.o: \
- /home/ubuntu/Finaltest/Server/server/source/server.cpp \
+ /home/ubuntu/Come_On_Dolsoe/server/server/source/server.cpp \
  /usr/include/stdc-predef.h \
- /home/ubuntu/Finaltest/Server/server/header/server.h \
+ /home/ubuntu/Come_On_Dolsoe/server/server/header/server.h \
  /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -148,7 +148,7 @@ server/CMakeFiles/server.dir/source/server.cpp.o: \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
  /usr/include/c++/11/bits/istream.tcc \
- /home/ubuntu/Finaltest/Server/server/header/server_protocol.h \
+ /home/ubuntu/Come_On_Dolsoe/server/server/header/server_protocol.h \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
@@ -169,8 +169,8 @@ server/CMakeFiles/server.dir/source/server.cpp.o: \
  /usr/include/x86_64-linux-gnu/asm/sockios.h \
  /usr/include/asm-generic/sockios.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
- /home/ubuntu/Finaltest/Server/server/header/server_handlers.h \
- /home/ubuntu/Finaltest/Server/server/header/session.h \
+ /home/ubuntu/Come_On_Dolsoe/server/server/header/server_handlers.h \
+ /home/ubuntu/Come_On_Dolsoe/server/server/header/session.h \
  /usr/include/c++/11/thread /usr/include/c++/11/bits/std_thread.h \
  /usr/include/c++/11/tuple /usr/include/c++/11/utility \
  /usr/include/c++/11/bits/stl_relops.h /usr/include/c++/11/array \

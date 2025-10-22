@@ -1,7 +1,7 @@
 client/CMakeFiles/client.dir/source/client_handlers.cpp.o: \
- /home/ubuntu/Finaltest/Server/client/source/client_handlers.cpp \
+ /home/ubuntu/Come_On_Dolsoe/server/client/source/client_handlers.cpp \
  /usr/include/stdc-predef.h \
- /home/ubuntu/Finaltest/Server/client/header/client_handlers.h \
+ /home/ubuntu/Come_On_Dolsoe/server/client/header/client_handlers.h \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -134,7 +134,7 @@ client/CMakeFiles/client.dir/source/client_handlers.cpp.o: \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc \
- /home/ubuntu/Finaltest/Server/client/header/client_protocol.h \
+ /home/ubuntu/Come_On_Dolsoe/server/client/header/client_protocol.h \
  /usr/include/x86_64-linux-gnu/sys/socket.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
  /usr/include/x86_64-linux-gnu/bits/socket.h \

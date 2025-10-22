@@ -1,7 +1,7 @@
 client/CMakeFiles/client.dir/source/main.cpp.o: \
- /home/ubuntu/Finaltest/Server/client/source/main.cpp \
+ /home/ubuntu/Come_On_Dolsoe/server/client/source/main.cpp \
  /usr/include/stdc-predef.h \
- /home/ubuntu/Finaltest/Server/client/source/../header/client.h \
+ /home/ubuntu/Come_On_Dolsoe/server/client/source/../header/client.h \
  /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
